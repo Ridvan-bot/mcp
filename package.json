@@ -10,7 +10,7 @@
   "description": "A repo for my first setup using MCP",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
+    "build": "tsc && chmod 755 build/index.js"
   },
   "files": [
     "build"
