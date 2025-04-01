@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "dotenv": "^16.4.7"
+  },
+  "name": "mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A repo for my first setup using MCP",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
+  },
+  "files": [
+    "build"
+  ],
+  "bin": {
+    "weather": "./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ridvan-bot/mcp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ridvan-bot/mcp/issues"
+  },
+  "homepage": "https://github.com/Ridvan-bot/mcp#readme",
+  "devDependencies": {
+    "@types/node": "^22.13.16",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}

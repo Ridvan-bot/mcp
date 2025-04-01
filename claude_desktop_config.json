@@ -1,0 +1,10 @@
+{
+    "mcpServers": {
+        "weather": {
+            "command": "node",
+            "args": [
+                "/Users/admin/Documents/aspia/mcp/build/index.js"
+            ]
+        }
+    }
+}
