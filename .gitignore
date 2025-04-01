@@ -1,0 +1,8 @@
+.env
+build/
+
+# Node-generated files
+node_modules/
+
+# Virtual environments
+.venv
