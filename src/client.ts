@@ -2,6 +2,7 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { OpenAI } from 'openai';
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import dotenv from 'dotenv';
+import fs from 'fs';
 
 
 dotenv.config();
@@ -20,11 +21,23 @@ export const createChatCompletion = async (
   const response = await openai.chat.completions.create({
     model: 'gpt-4',
     messages,
-    max_tokens: 100,
+    max_tokens: 400,
     temperature: 0.7,
   });
   return response;
 };
+
+export const uploadfile = async () => {
+const fileStream = fs.createReadStream('./csv.jsonl');
+const uploadResponse = await openai.files.create({
+  file: fileStream,
+  purpose: 'fine-tune'
+}
+);
+console.log(uploadResponse);
+return uploadResponse;
+}
+
 
 
 const transport = new StdioClientTransport({
