@@ -2,7 +2,6 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { OpenAI } from 'openai';
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import dotenv from 'dotenv';
-import readline from 'readline';
 
 
 dotenv.config();
@@ -10,6 +9,23 @@ dotenv.config();
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+// Definiera en typ för meddelanden som inte kräver "name"
+type ChatMessage = { role: "user" | "assistant" | "system"; content: string };
+
+
+export const createChatCompletion = async (
+  messages: ChatMessage[]
+): Promise<any> => {
+  const response = await openai.chat.completions.create({
+    model: 'gpt-4',
+    messages,
+    max_tokens: 100,
+    temperature: 0.7,
+  });
+  return response;
+};
+
 
 const transport = new StdioClientTransport({
   command: "node",
