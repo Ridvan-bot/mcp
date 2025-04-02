@@ -27,8 +27,8 @@ export const createChatCompletion = async (
   return response;
 };
 
-export const uploadfile = async () => {
-const fileStream = fs.createReadStream('./csv.jsonl');
+export const uploadfile = async (filepath: string) => {
+const fileStream = fs.createReadStream(filepath);
 const uploadResponse = await openai.files.create({
   file: fileStream,
   purpose: 'fine-tune'
@@ -88,7 +88,6 @@ const result = await client.callTool({
   name: "echo",
   arguments: { message: "Testmeddelande" }
 });
-console.log('Tool Response:', result);
 
 
 

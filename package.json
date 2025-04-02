@@ -2,8 +2,12 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@modelcontextprotocol/sdk": "^1.8.0",
+    "csvtojson": "^2.0.10",
     "dotenv": "^16.4.7",
-    "openai": "^4.91.1"
+    "openai": "^4.91.1",
+    "pdf-parse": "^1.1.1",
+    "pdf2json": "^3.1.5",
+    "pdfjs-dist": "^5.1.91"
   },
   "name": "mcp",
   "version": "1.0.0",
@@ -11,7 +15,7 @@
   "description": "A repo for my first setup using MCP",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/client.js', '755')\"",
+    "build": "tsc",
     "start": "tsc && node build/userInput.js"
   },
   "files": [
@@ -33,6 +37,7 @@
   "homepage": "https://github.com/Ridvan-bot/mcp#readme",
   "devDependencies": {
     "@types/node": "^22.13.16",
+    "@types/pdf-parse": "^1.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   }
